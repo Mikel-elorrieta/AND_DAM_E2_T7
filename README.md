@@ -6,6 +6,8 @@ Lengoiaiak: Java, SQL
 
 2025/01/13
 
+Wiki: https://docs.google.com/document/d/1o9Eu3txwEwNQygoBbH2HBliS7x780nfxU0uJdZ42ZMc/edit?tab=t.0 
+
 Enuntziatua:
 
 ![image](https://github.com/user-attachments/assets/234a662d-5300-458a-a14b-99db38cfd37e)
