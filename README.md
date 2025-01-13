@@ -17,6 +17,13 @@ Enuntziatua:
 ![image](https://github.com/user-attachments/assets/6e619251-aafe-4e6c-bcbd-ddc83a79bedf)
 ![image](https://github.com/user-attachments/assets/68c62a1a-dee8-4a22-8253-d38ef2068f60)
 
+Erubrika:
+
+![image](https://github.com/user-attachments/assets/155ff519-89fd-4bea-932e-d224ec9ec1ca)
+![image](https://github.com/user-attachments/assets/32a7f974-40c7-41dc-83af-52c780fd3d28)
+![image](https://github.com/user-attachments/assets/550b48a9-a7f8-4a27-a05a-78f83c1e4cc9)
+
+
 Denboralizazioa:
 
 ![image](https://github.com/user-attachments/assets/5587ac45-5e5d-4b97-a98c-129b8d0bc5ad)
