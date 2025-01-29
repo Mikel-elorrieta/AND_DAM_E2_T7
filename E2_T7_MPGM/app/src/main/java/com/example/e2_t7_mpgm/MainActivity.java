@@ -1,5 +1,8 @@
 package com.example.e2_t7_mpgm;
 
+import static java.sql.DriverManager.println;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -8,13 +11,18 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import android.widget.ImageView;
+import android.util.Log;
+import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+import com.example.e2_t7_mpgm.Dao.Konexioa;
+import modelo.Users;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
@@ -23,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        ImageView imageView = findViewById(com.example.e2_t7_mpgm.R.id.logoElorrieta);
-        Glide.with(this)
-                .asGif()
-                .load(com.example.e2_t7_mpgm.R.raw.logogif) // Archivo GIF en res/raw
-                .into(imageView);
+
+        Intent intent = new Intent(MainActivity.this, Login.class);
+        startActivity(intent);
+
+
     }
 }

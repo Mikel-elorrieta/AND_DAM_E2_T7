@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="5"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/lunesText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:gravity="center"
+        android:text="Lunes"/>
+
+    <TextView
+        android:id="@+id/martesText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:gravity="center"
+        android:text="Martes"/>
+
+    <TextView
+        android:id="@+id/miercolesText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:gravity="center"
+        android:text="Miércoles"/>
+
+    <TextView
+        android:id="@+id/juevesText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:gravity="center"
+        android:text="Jueves"/>
+
+    <TextView
+        android:id="@+id/viernesText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:gravity="center"
+        android:text="Viernes"/>
+</LinearLayout>

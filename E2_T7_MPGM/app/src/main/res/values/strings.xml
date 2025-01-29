@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">E2_T7_MPGM</string>
+    <string name="name">Izena: </string>
+    <string name="forgotPass">Pasahitza Ahaztu dut.</string>
+    <string name="open_drawer">Menua zabaldu</string>
+    <string name="close_drawer">Menua itxi</string>
+    <string name="dni">NAN: </string>
+    <string name="telefono">Telefonoa: </string>
+    <string name="mail">Helbidea: </string>
+    <string name="maila">maila</string>
+    <string name="zikloa">Zikloa:</string>
 </resources>
+
