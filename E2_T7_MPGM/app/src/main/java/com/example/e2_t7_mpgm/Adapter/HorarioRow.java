@@ -37,6 +37,18 @@ public class HorarioRow {
         public String getViernes() {
             return viernes;
         }
+
+    @Override
+    public String toString() {
+        return "HorarioRow{" +
+                "lunes='" + lunes + '\'' +
+                ", martes='" + martes + '\'' +
+                ", miercoles='" + miercoles + '\'' +
+                ", jueves='" + jueves + '\'' +
+                ", viernes='" + viernes + '\'' +
+                '}';
+    }
+
     }
 
 
