@@ -15,7 +15,7 @@
         android:padding="8dp"
         android:gravity="center"
         android:text="Lunes"
-        android:background="@drawable/cell_border" />
+        android:background="@drawable/table_cell_border" />
 
     <!-- Celda Martes -->
     <TextView
@@ -26,7 +26,7 @@
         android:padding="8dp"
         android:gravity="center"
         android:text="Martes"
-        android:background="@drawable/cell_border" />
+        android:background="@drawable/table_cell_border" />
 
     <!-- Celda Miércoles -->
     <TextView
@@ -37,7 +37,7 @@
         android:padding="8dp"
         android:gravity="center"
         android:text="Miércoles"
-        android:background="@drawable/cell_border" />
+        android:background="@drawable/table_cell_border" />
 
     <!-- Celda Jueves -->
     <TextView
@@ -48,7 +48,7 @@
         android:padding="8dp"
         android:gravity="center"
         android:text="Jueves"
-        android:background="@drawable/cell_border" />
+        android:background="@drawable/table_cell_border" />
 
     <!-- Celda Viernes -->
     <TextView
@@ -59,5 +59,5 @@
         android:padding="8dp"
         android:gravity="center"
         android:text="Viernes"
-        android:background="@drawable/cell_border" />
+        android:background="@drawable/table_cell_border" />
 </LinearLayout>
