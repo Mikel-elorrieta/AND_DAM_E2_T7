@@ -67,4 +67,14 @@
         </TableRow>
     </TableLayout>
 
+    <Button
+        android:id="@+id/btnAlumnos"
+        android:layout_width="107dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Ikasle zerrenda"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

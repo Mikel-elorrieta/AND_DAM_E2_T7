@@ -1,7 +1,6 @@
 package com.example.e2_t7_mpgm;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -14,26 +13,21 @@ import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.e2_t7_mpgm.Adapter.HorarioAdapter;
-import com.example.e2_t7_mpgm.Adapter.HorarioRow;
 import com.example.e2_t7_mpgm.Dao.Konexioa;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import modelo.Matriculaciones;
-import modelo.Users;
 import modelo.VistaHorariosUsuarios;
 
 
 public class Horarios extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private HorarioAdapter horarioAdapter;
-    private List<HorarioRow> horarios;
+
+
 
 
     // Registrar el ActivityResultLauncher aquí
@@ -50,12 +44,14 @@ public class Horarios extends AppCompatActivity {
             startActivity(intent);
         });
 
+        // Configurar el botón de alumnos (si es necesario)
+        findViewById(R.id.btnAlumnos).setOnClickListener(v -> {
+            Intent intent = new Intent(Horarios.this, Alumnos.class);
+            startActivity(intent);
+        });
 
-        horarios = new ArrayList<>();
 
         TableLayout tableLayout = findViewById(R.id.horariosTable);
-
-
 
 
             new Handler(Looper.getMainLooper()).postDelayed(() -> {
@@ -74,7 +70,7 @@ public class Horarios extends AppCompatActivity {
 
 
 
-                                horarios.clear(); // Limpiamos la lista antes de agregar nuevos datos
+
 
                                 // Crear una matriz vacía de 6 horas x 5 días (inicializar con cadenas vacías)
                                 String[][] horarioMatriz = new String[5][5];
@@ -143,7 +139,7 @@ public class Horarios extends AppCompatActivity {
                                 if (result instanceof ArrayList<?>) {  // Verificamos que es un ArrayList, pero sin especificar el tipo aún
 
                                     ArrayList<modelo.Horarios> resultList = (ArrayList<modelo.Horarios>) result;
-                                    horarios.clear(); // Limpiamos la lista antes de agregar nuevos datos
+
 
                                     // Crear una matriz vacía de 6 horas x 5 días (inicializar con cadenas vacías)
                                     String[][] horarioMatriz = new String[5][5];
