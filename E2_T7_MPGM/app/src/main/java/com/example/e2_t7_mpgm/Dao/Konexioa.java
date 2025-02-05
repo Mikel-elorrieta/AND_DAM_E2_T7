@@ -8,7 +8,7 @@ import java.net.UnknownHostException;
 
 public class Konexioa {
 
-    private static final String SERVER_ADDRESS = "192.168.1.135";
+    private static final String SERVER_ADDRESS = "10.5.104.61";
     private static final int SERVER_PORT = 20000;
 
     private static Socket server;

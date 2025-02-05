@@ -20,15 +20,14 @@ import com.example.e2_t7_mpgm.Dao.Konexioa;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.Reuniones;
 import modelo.VistaHorariosUsuarios;
 
 
 public class Horarios extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-
-
-
+    private ArrayList<Reuniones> reuniones = new ArrayList<>();
 
     // Registrar el ActivityResultLauncher aquí
     private ActivityResultLauncher<Intent> cameraLauncher;
@@ -54,11 +53,12 @@ public class Horarios extends AppCompatActivity {
         TableLayout tableLayout = findViewById(R.id.horariosTable);
 
 
-            new Handler(Looper.getMainLooper()).postDelayed(() -> {
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
 
 
+            if (Global.getUser().getTipos().getName().equals("alumno")) {
+                findViewById(R.id.btnAlumnos).setEnabled(false);
 
-                if(Global.getUser().getTipos().getName().equals("alumno")) {
 
                 Konexioa.ask("getHorariosByAlumnoId/" + Global.getUser().getId(), new Konexioa.AskCallback() {
                     @Override
@@ -67,9 +67,6 @@ public class Horarios extends AppCompatActivity {
                             if (result instanceof ArrayList<?>) {  // Verificamos que es un ArrayList, pero sin especificar el tipo aún
 
                                 ArrayList<VistaHorariosUsuarios> resultList = (ArrayList<VistaHorariosUsuarios>) result;
-
-
-
 
 
                                 // Crear una matriz vacía de 6 horas x 5 días (inicializar con cadenas vacías)
@@ -81,7 +78,7 @@ public class Horarios extends AppCompatActivity {
                                     }
                                 }
 
-                                Log.d("cortes",resultList.toString());
+                                Log.d("cortes", resultList.toString());
                                 // Llenar la matriz con los datos de horarios
                                 for (VistaHorariosUsuarios v : resultList) {
 
@@ -130,92 +127,134 @@ public class Horarios extends AppCompatActivity {
                     }
                 });
 
-        }else {
+            } else {
 
-                    Konexioa.ask("getHorariosByProfeId/" + Global.getUser().getId(), new Konexioa.AskCallback() {
-                        @Override
-                        public void onSuccess(Object result) {
-                            runOnUiThread(() -> {
-                                if (result instanceof ArrayList<?>) {  // Verificamos que es un ArrayList, pero sin especificar el tipo aún
+                Konexioa.ask("getHorariosByProfeId/" + Global.getUser().getId(), new Konexioa.AskCallback() {
+                    @Override
+                    public void onSuccess(Object result) {
+                        runOnUiThread(() -> {
+                            if (result instanceof ArrayList<?>) {  // Verificamos que es un ArrayList, pero sin especificar el tipo aún
 
-                                    ArrayList<modelo.Horarios> resultList = (ArrayList<modelo.Horarios>) result;
+                                ArrayList<modelo.Horarios> resultList = (ArrayList<modelo.Horarios>) result;
 
 
-                                    // Crear una matriz vacía de 6 horas x 5 días (inicializar con cadenas vacías)
-                                    String[][] horarioMatriz = new String[5][5];
+                                // Crear una matriz vacía de 6 horas x 5 días (inicializar con cadenas vacías)
+                                String[][] horarioMatriz = new String[5][5];
 
-                                    for (int i = 0; i < 5; i++) {
-                                        for (int j = 0; j < 5; j++) {
-                                            horarioMatriz[i][j] = ""; // Inicializar celdas vacías
-                                        }
+                                for (int i = 0; i < 5; i++) {
+                                    for (int j = 0; j < 5; j++) {
+                                        horarioMatriz[i][j] = ""; // Inicializar celdas vacías
                                     }
-
-                                    // Llenar la matriz con los datos de horarios
-                                    for (modelo.Horarios h : resultList) {
-
-
-                                        int horaIndex = Integer.parseInt(h.getId().getHora()) - 1; // Convertir hora (1-6) a índice (0-5)
-                                        int diaIndex = getDiaIndex(h.getId().getDia()); // Obtener índice del día (0-4)
-
-                                        if (horaIndex >= 0 && horaIndex < 5 && diaIndex >= 0 && diaIndex < 5) {
-                                            // Guardar asignatura en la celda correspondiente
-                                            horarioMatriz[horaIndex][diaIndex] = h.getModulos().getNombre();
-                                        }
-                                    }
-
-                                    // Agregar las filas a la tabla
-                                    for (int i = 0; i < 5; i++) {
-                                        TableRow row = new TableRow(Horarios.this);
-
-                                        for (int j = 0; j < 5; j++) {
-                                            TextView textView = new TextView(Horarios.this);
-                                            textView.setText(horarioMatriz[i][j]);
-                                            textView.setPadding(8, 8, 8, 8);
-                                            textView.setBackgroundResource(R.drawable.table_cell_border);
-                                            textView.setLayoutParams(new TableRow.LayoutParams(
-                                                    TableRow.LayoutParams.WRAP_CONTENT,
-                                                    TableRow.LayoutParams.WRAP_CONTENT));
-
-                                            row.addView(textView);
-                                        }
-
-                                        // Agregar la fila a la tabla
-                                        tableLayout.addView(row);
-
-
-                                    }
-                                } else {
-                                    Toast.makeText(Horarios.this, "Error Horarios", Toast.LENGTH_SHORT).show();
                                 }
-                            });
-                        }
 
-                        @Override
-                        public void onError(Exception e) {
-                            runOnUiThread(() -> {
-                                Log.d("Error Forgot Password", e.getMessage());
-                                Toast.makeText(Horarios.this, "Error recuperando user", Toast.LENGTH_SHORT).show();
-                            });
-                        }
-                    });
-
-                }
-            }, 500);
+                                // Llenar la matriz con los datos de horarios
+                                for (modelo.Horarios h : resultList) {
 
 
+                                    int horaIndex = Integer.parseInt(h.getId().getHora()) - 1; // Convertir hora (1-6) a índice (0-5)
+                                    int diaIndex = getDiaIndex(h.getId().getDia()); // Obtener índice del día (0-4)
 
+                                    if (horaIndex >= 0 && horaIndex < 5 && diaIndex >= 0 && diaIndex < 5) {
+                                        // Guardar asignatura en la celda correspondiente
+                                        horarioMatriz[horaIndex][diaIndex] = h.getModulos().getNombre();
+                                    }
+                                }
+
+                                // Agregar las filas a la tabla
+                                for (int i = 0; i < 5; i++) {
+                                    TableRow row = new TableRow(Horarios.this);
+
+                                    for (int j = 0; j < 5; j++) {
+                                        TextView textView = new TextView(Horarios.this);
+                                        textView.setText(horarioMatriz[i][j]);
+                                        textView.setPadding(8, 8, 8, 8);
+                                        textView.setBackgroundResource(R.drawable.table_cell_border);
+                                        textView.setLayoutParams(new TableRow.LayoutParams(
+                                                TableRow.LayoutParams.WRAP_CONTENT,
+                                                TableRow.LayoutParams.WRAP_CONTENT));
+
+                                        row.addView(textView);
+                                    }
+
+                                    // Agregar la fila a la tabla
+                                    tableLayout.addView(row);
+
+
+                                }
+                            } else {
+                                Toast.makeText(Horarios.this, "Error Horarios", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        runOnUiThread(() -> {
+                            Log.d("Error Forgot Password", e.getMessage());
+                            Toast.makeText(Horarios.this, "Error recuperando user", Toast.LENGTH_SHORT).show();
+                        });
+                    }
+                });
+
+            }
+        }, 500);
+
+        loadBilerak();
     }
 
     // Función para obtener el índice del día
     private int getDiaIndex(String dia) {
         switch (dia) {
-            case "L/A": return 0;
-            case "M/A": return 1;
-            case "X": return 2;
-            case "J/O": return 3;
-            case "V/O": return 4;
-            default: return -1; // Retornar -1 si el día no es válido
+            case "L/A":
+                return 0;
+            case "M/A":
+                return 1;
+            case "X":
+                return 2;
+            case "J/O":
+                return 3;
+            case "V/O":
+                return 4;
+            default:
+                return -1; // Retornar -1 si el día no es válido
         }
+    }
+
+
+
+    private void loadBilerak() {
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            String url = "";
+            if(Global.getUser().getTipos().getName().equals("alumno")){
+                url = "getBilerakByAlumnoId/" + Global.getUser().getId();
+
+            }else{
+                url = "getBilerakByProfesorId/" + Global.getUser().getId();
+            }
+
+            Konexioa.ask(url, new Konexioa.AskCallback() {
+                @Override
+                public void onSuccess(Object result) {
+                    runOnUiThread(() -> {
+                        if (result instanceof ArrayList<?>) {
+                            reuniones = (ArrayList<Reuniones>) result;
+                            Log.d("mikel" , String.valueOf(reuniones));// Asignar el resultado al atributo de la clase
+                        } else {
+                            Toast.makeText(Horarios.this, "Error Reuniones", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+
+                @Override
+                public void onError(Exception e) {
+                    runOnUiThread(() -> {
+                        Log.d("Error Reuniones", e.getMessage());
+                        Toast.makeText(Horarios.this, "Error recuperando Reuniones", Toast.LENGTH_SHORT).show();
+                    });
+                }
+            });
+
+        }, 800);
     }
 
 

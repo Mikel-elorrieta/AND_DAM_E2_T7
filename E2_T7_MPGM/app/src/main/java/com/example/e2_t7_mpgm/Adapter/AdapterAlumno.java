@@ -32,9 +32,9 @@ public class AdapterAlumno extends RecyclerView.Adapter<AdapterAlumno.UserViewHo
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         Users user = usersList.get(position);
-        holder.txtUsername.setText(user.getUsername());
-        holder.txtEmail.setText(user.getEmail());
-        holder.txtNombre.setText(user.getNombre());
+        holder.txtUsername.setText(user.getNombre());
+        holder.txtEmail.setText(user.getApellidos());
+        holder.txtNombre.setText(user.getEmail());
     }
 
     @Override
