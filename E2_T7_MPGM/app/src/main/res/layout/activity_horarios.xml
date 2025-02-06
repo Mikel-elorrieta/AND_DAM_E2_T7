@@ -37,31 +37,31 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lunes"
+                android:text="Astelehena"
                 android:padding="8dp"
                 android:background="@drawable/table_cell_border"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Martes"
+                android:text="Asteartea"
                 android:padding="8dp"
                 android:background="@drawable/table_cell_border"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Miércoles"
+                android:text="Asteazkena"
                 android:padding="8dp"
                 android:background="@drawable/table_cell_border"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jueves"
+                android:text="Eguena"
                 android:padding="8dp"
                 android:background="@drawable/table_cell_border"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Viernes"
+                android:text="Barikua"
                 android:padding="8dp"
                 android:background="@drawable/table_cell_border"/>
         </TableRow>
@@ -69,18 +69,48 @@
 
     <Button
         android:id="@+id/btnAlumnos"
-        android:layout_width="111dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="523dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="107dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="328dp"
         android:text="Ikasle zerrenda"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="248dp"
+        android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/menu"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.042" />
+
+    <TextView
+        android:id="@+id/textErabiltzaile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Erabiltzailea hautatu"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.081" />
+
+    <TextView
+        android:id="@+id/textOrdutegia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ordutegia"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
