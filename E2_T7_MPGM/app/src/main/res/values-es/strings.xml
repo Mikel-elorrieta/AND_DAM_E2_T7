@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">E2_T7_MPGM</string>
+    <string name="forgotPass">He olvidado mi contraseña</string>
+    <string name="open_drawer">Abrir menu</string>
+    <string name="close_drawer">Cerrar menu</string>
+    <string name="name">Nombre: </string>
+    <string name="dni">DNI: </string>
+    <string name="telefono">Telefono: </string>
+    <string name="mail">Correo: </string>
+    <string name="maila">curso</string>
+    <string name="zikloa">Ciclo:</string>
+</resources>
